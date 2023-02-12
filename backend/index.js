@@ -3,12 +3,14 @@ import cors from 'cors';
 import 'dotenv/config';
 import { configureDb } from "./db.js";
 import router from "./Routes/CreateUser.js";
+import routerDisplay from "./Routes/DisplayData.js";
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 app.use(router);
+app.use(routerDisplay);
 app.get("/", (req, res) => {
     res.send("🚩🚩🚩🚩Jay Shri Ram...🚩🚩🚩🚩");
 })
