@@ -6,17 +6,20 @@ import '../node_modules/bootstrap-dark-5/dist/css/bootstrap-dark.min.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.bundle';
 import '../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js';
 import Signup from './screens/Signup';
+import { CartProvider } from './components/ContextReducer';
 
 function App() {
   return (
     <>
-    <BrowserRouter>
-    <Routes>
-      <Route path='/' element={<Home/>}></Route>
-      <Route path='/login' element={<Login/>}></Route>
-      <Route path='/signup' element={<Signup/>}></Route>
-    </Routes>
-    </BrowserRouter>
+      <CartProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<Home />}></Route>
+            <Route path='/login' element={<Login />}></Route>
+            <Route path='/signup' element={<Signup />}></Route>
+          </Routes>
+        </BrowserRouter>
+      </CartProvider>
     </>
   );
 }

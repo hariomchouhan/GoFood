@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 export default function Navigation() {
 
   const navigate = useNavigate();
-  const handleLogout = async()=>{
+  const handleLogout = ()=>{
     localStorage.removeItem("token");
     navigate("/login");
   }

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import Card from '../components/Card'
-import Carousel from '../components/Carousel'
 import Footer from '../components/Footer'
 import Navigation from '../components/Navigation'
 
@@ -76,10 +75,9 @@ export default function Home() {
                                     .map((filterItems)=>{
                                         return(
                                             <>
-                                            <div key={filterItems._id} className='col-12 col-md-6 col-lg-3 m-2'>
-                                                <Card foodName={filterItems.name}
+                                            <div key={filterItems._id} className='col-12 col-md-6 col-lg-4 '>
+                                                <Card foodItem = {filterItems}
                                                 options={filterItems.options[0]}
-                                                imgSrc={filterItems.img}
                                                 ></Card>
                                             </div>
                                             </>

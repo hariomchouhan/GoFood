@@ -3,17 +3,16 @@ import { Link } from 'react-router-dom'
 import Navigation from '../components/Navigation'
 
 export default function SignUp() {
-    
-    const [credentials, setCredentials] = useState({name:"", email:"", password:"",geolocation:""})
 
-    const onChange = async(e)=>{
-        setCredentials({...credentials, [e.target.name]:e.target.value})
+    const [credentials, setCredentials] = useState({ name: "", email: "", password: "", geolocation: "" })
+    const onChange = async (e) => {
+        setCredentials({ ...credentials, [e.target.name]: e.target.value })
     }
-    const handleSubmit = async(e)=>{
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const response = await fetch('http://localhost:6700/', {
             method: 'POST',
-            headers:{
+            headers: {
                 'content-type': 'application/json'
             },
             body: JSON.stringify({
@@ -21,14 +20,15 @@ export default function SignUp() {
                 email: credentials.email,
                 password: credentials.password,
                 location: credentials.geolocation
-            })            
+            })
         })
         const json = await response.json();
         console.log(json);
 
-        if(json.error){
+        if (json.error) {
             alert("Enter valid credentials")
         }
+        
     }
 
     return (
@@ -38,7 +38,7 @@ export default function SignUp() {
             </div>
             <div className='container m-4'>
                 <form onSubmit={handleSubmit}>
-                <div className="mb-3">
+                    <div className="mb-3">
                         <label htmlFor="name" className="form-label">Name</label>
                         <input type="text" className="form-control" name='name' value={credentials.name} onChange={onChange} />
                     </div>

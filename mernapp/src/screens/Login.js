@@ -5,7 +5,7 @@ import Navigation from '../components/Navigation';
 
 export default function Login() {
   const [credentials, setCredentials] = useState({ email: "", password: "" })
-let navigate = useNavigate();
+  let navigate = useNavigate();
   const onChange = async (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value })
   }
@@ -27,7 +27,7 @@ let navigate = useNavigate();
     if (json.error) {
       alert("Enter valid credentials");
     }
-    else{
+    else {
       localStorage.setItem("token", json.token);
       console.log(localStorage.getItem("token"));
       navigate('/');
@@ -39,7 +39,7 @@ let navigate = useNavigate();
 
       <div className='container m-4'>
         <form onSubmit={handleSubmit}>
-          
+
           <div className="mb-3">
             <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
             <input type="email" className="form-control" name='email' value={credentials.email} onChange={onChange} />
@@ -48,7 +48,7 @@ let navigate = useNavigate();
             <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
             <input type="password" className="form-control" name='password' value={credentials.password} onChange={onChange} />
           </div>
-          
+
           <button type="submit" className="m-3 btn btn-success">Submit</button>
           <Link to="/signup" className='m-3 btn btn-danger'>SignUp</Link>
         </form>
