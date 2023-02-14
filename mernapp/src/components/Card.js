@@ -10,7 +10,7 @@ export default function Card(props) {
     const [qty, setQty] = useState(1);
     const [size, setSize] = useState("");
     const handleAddToCart = async () => {
-        await dispatch({ type: "ADD", id: props.foodItem._id, name: props.foodItem.name, price: props.finalPrice, size: size, qty: qty });
+        await dispatch({ type: "ADD", id: props.foodItem._id, name: props.foodItem.name, price: props.finalPrice, qty: qty, size: size });
         console.log(data);
     }
     return (

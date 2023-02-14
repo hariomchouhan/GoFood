@@ -10,7 +10,6 @@ import { CartProvider } from './components/ContextReducer';
 
 function App() {
   return (
-    <>
       <CartProvider>
         <BrowserRouter>
           <Routes>
@@ -20,7 +19,6 @@ function App() {
           </Routes>
         </BrowserRouter>
       </CartProvider>
-    </>
   );
 }
 
