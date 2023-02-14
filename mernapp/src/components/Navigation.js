@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import Badge from 'react-bootstrap/Badge';
+import Modal from '../Modal.js'
+import Cart from '../screens/Cart';
+import { useCart } from './ContextReducer.js';
 
 export default function Navigation() {
 
+  const [cartView, setCartView] = useState(false);
+  let data = useCart();
   const navigate = useNavigate();
-  const handleLogout = ()=>{
+  const handleLogout = () => {
     localStorage.removeItem("token");
     navigate("/login");
   }
@@ -36,9 +42,11 @@ export default function Navigation() {
               </div>
               :
               <div>
-                <div className='btn bg-white text-success mx-2'>
-                  Card
+                <div className='btn bg-white text-success mx-2' onClick={()=> {setCartView(true)}}>
+                  My Card {" "}
+                  <Badge pill bg="danger"> {data.length} </Badge>
                 </div>
+                {cartView ? <Modal onClose={()=> {setCartView(false)}}><Cart/></Modal> : null}
                 <div className='btn bg-white text-danger mx-2' onClick={handleLogout}>
                   Logout
                 </div>
