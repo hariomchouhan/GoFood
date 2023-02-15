@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import Card from '../components/Card'
-import Footer from '../components/Footer'
-import Navigation from '../components/Navigation'
 
 export default function Home() {
 
@@ -27,9 +25,6 @@ export default function Home() {
     },[])
     return (
         <>
-            <div>
-                <Navigation></Navigation>
-            </div>
             <div>
             <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel" style={{objectFit: "contain !important"}}>
                 <div className="carousel-inner" id='carousel'>
@@ -90,9 +85,6 @@ export default function Home() {
                        
                     }) : <div>Jay Siya Ram</div>
                 }
-            </div>
-            <div>
-                <Footer></Footer>
             </div>
         </>
     )

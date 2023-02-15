@@ -29,7 +29,7 @@ export default function Navigation() {
               </li>
               {(localStorage.getItem("token")) ?
                 <li className="nav-item">
-                  <Link className="nav-link active fs-5" aria-current="page" to="/">My Orders</Link>
+                  <Link className="nav-link active fs-5" aria-current="page" to="/myorder">My Orders</Link>
                 </li>
                 : ""}
 

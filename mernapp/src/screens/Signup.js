@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import Navigation from '../components/Navigation'
 
 export default function SignUp() {
 
@@ -33,9 +32,6 @@ export default function SignUp() {
 
     return (
         <>
-            <div>
-                <Navigation></Navigation>
-            </div>
             <div className='container m-4'>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-3">

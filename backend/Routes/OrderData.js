@@ -37,4 +37,13 @@ routerOrder.post("/orderdata", async (request, response) => {
     }
 })
 
+routerOrder.post("/myorderdata", async (request, response) => {
+    try {
+        let myData = await OrderModel.findOne({ 'email': request.body.email });
+        response.json({orderData: myData});
+    } catch (error) {
+        console.log(error.message);
+        response.send("Server Error", error.message);
+    }
+})
 export default routerOrder;

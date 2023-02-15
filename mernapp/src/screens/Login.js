@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import Footer from '../components/Footer.js';
-import Navigation from '../components/Navigation';
 
 export default function Login() {
   const [credentials, setCredentials] = useState({ email: "", password: "" })
@@ -36,7 +34,6 @@ export default function Login() {
   }
   return (
     <div>
-      <Navigation></Navigation>
 
       <div className='container m-4'>
         <form onSubmit={handleSubmit}>
@@ -55,7 +52,6 @@ export default function Login() {
         </form>
       </div>
 
-      <Footer></Footer>
     </div>
   )
 }
